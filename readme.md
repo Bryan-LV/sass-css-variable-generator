@@ -1,3 +1,6 @@
+## Try it out
+https://variable-mapper.netlify.app/
+
 The idea would be that you would only have to type in the variable name and value like so:
 ```scss
     hl-card-padding: 10px;
