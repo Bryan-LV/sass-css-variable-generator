@@ -6,6 +6,6 @@ The idea would be that you would only have to type in the variable name and valu
     --hl-card-padding: #{$hl-card-padding};
 ```
 
-It would respect up to one line break. Meaning if there are double spaces or more then it would reduce that to just once space between variable declarations.
+It would respect up to one line break. Meaning if there are double spaces or more then it would reduce that to just once space between variable declarations. (working on it)
 
-It would add the '!default' to the end of your sass vars.
+It would add the '!default' to the end of your sass vars. Will maybe make this optional in the future.
