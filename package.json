@@ -4,7 +4,8 @@
   "description": "The idea would be that you would only have to type in the variable name and value like so: ```scss     hl-card-padding: 10px;     // And that would print out this      $hl-card-padding: 10px !default;      --hl-card-padding: #{$hl-card-padding}; ```",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "deploy": "parcel build index.html"
   },
   "keywords": [],
   "author": "",
