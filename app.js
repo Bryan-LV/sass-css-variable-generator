@@ -1,11 +1,11 @@
 function parseVariables(input) {
-    // split by sections ending with ";" that are then proceeded by a line break.
+    // split by sections ending with ";" that also may be proceeded by a line break.
     let regex = /;\s*\n?/g;
     return input.split(regex);
 }
 
-// turn split variables into objects holding scss and css vars
-function createObj(inputArr) {
+// Create object holding scss and css variable
+function createGroupedVariablesObject(inputArr) {
     const cloneArr = [...inputArr];
     return cloneArr.reduce( (acc, cur, index) => {
 
@@ -28,7 +28,7 @@ function createObj(inputArr) {
 }
 
 window.onload = function() {
-    let textInput = document.querySelector('#input');
+    const textInput = document.querySelector('#input');
     const form = document.querySelector('#form');
     const output = document.querySelector('#output .output-text');
     const copyBtn = document.querySelector('#copy-btn');
@@ -37,16 +37,17 @@ window.onload = function() {
 
         e.preventDefault();
         // split up variables
-        const vars = parseVariables(textInput.value);
-        
+        const vars = parseVariables(textInput.value.trim());
+
         // FIXME: trim last item off array as it's always an empty string
         vars.pop();
 
         // returns array of objects containing scss & css3 variables
-        const modData = createObj(vars);
+        const modData = createGroupedVariablesObject(vars);
 
-        // clear out before next run
+        // clear text before next write
         output.innerHTML = '';
+
         modData.forEach(obj => {
             output.innerHTML += `<p class="scss-var output-var">${obj.scss}</p>`;
         })
