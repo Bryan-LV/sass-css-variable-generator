@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCSS to CSS3 Mapper</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Fira+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="main.scss">
+</head>
+
+<body>
+    <section class="intro wrapper">
+        <h1 class="header">Variable mapper</h1>
+        <p class="desc">Generate your CSS3 variables by just writing SCSS like syntax (can omit the $ before the variable)</p>
+    </section>
+
+    <section class="settings-wrapper wrapper">
+        <h2 class="">Settings</h2>
+        <div class="settings">
+            <label for="prefix">add prefix</label>
+            <input type="text" name="prefix" id="prefix">
+        </div>
+    </section>
+    
+    <div id="app" class="wrapper">
+        <form id="form">
+            <h2 class="header">Input</h2>
+            <textarea class="variable-section" id="input" placeholder="card-bg: $color1;"></textarea>
+            <button class="btn" id="transform-btn" type="submit">Generate Variables</button>
+        </form>
+
+        <section id="output">
+            <h2 class="header">Output</h2>
+            <div class="output-text variable-section">
+                <p class="placeholder-var output-var">$card-bg: $color1 !default;</p>
+                <p class="placeholder-var output-var">--card-bg: #{$card-bg};</p>
+            </div>
+            <button class="btn" id="copy-btn">Copy to clipboard</button>
+        </section>
+    </div>
+
+    <section id="modal">
+        <div class="inside-modal">
+            <h3 class="modal-text">Copied to clipboard</h3>
+        </div>
+    </section>
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>

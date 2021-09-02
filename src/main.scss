@@ -1,0 +1,147 @@
+:root {
+    // Colors
+    --primary-color: hsl(173, 58%, 39%);
+    --accent-color: hsl(43, 74%, 66%);
+    --light-color: hsl(0, 0%, 96%);
+    --dark-color: hsl(197, 37%, 24%);
+    --black: hsl(0, 3%, 9%);
+
+    // Fonts
+    --primary-font: 'Fira Code', monospace;
+    --mono-font: 'Fira Mono', monospace;
+    --base-font-size: 18px;
+    --header-font-size: 28px;
+
+    // Styles
+    --border-radius: 5px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--primary-font);
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    margin: 0;
+}
+
+.variable-section {
+    background-color: var(--black);
+    color: var(--accent-color);
+    padding: 1vw 0 1vw 1vw;
+    width: 100%;
+    height: 100%;
+    font-family: var(--mono-font);
+    resize: none;
+    border-radius: var(--border-radius);
+    font-size: var(--base-font-size);
+    border: none;
+    margin-bottom: 0;
+}
+
+.btn {
+    padding: 8px 24px;
+    border-radius: var(--border-radius);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: var(--primary-font);
+    background-color: var(--primary-color);
+    font-size: var(--base-font-size);
+    margin-top: 5px;
+}
+
+.header {
+    color: var(--light-color);
+    font-size: var(--header-font-size);
+}
+
+.wrapper {
+    width: 90%;
+    margin: 0 auto;
+}
+
+input {
+    padding: 6px;
+    background-color: var(--black);
+    color: var(--light-color);
+    font-family: var(--mono-font);
+    font-size: var(--base-font-size);
+    border:none;
+    border-radius: var(--border-radius);
+}
+
+#app {
+    display: flex;
+
+    #form,
+    #output {
+        flex: 1;
+        min-height: 400px;
+    }
+}
+
+// Input Styles
+textarea {
+
+
+    &::placeholder {
+        color: var(--accent-color);
+        opacity: 0.5;
+    }
+}
+
+// Output styles
+#output {
+    margin: 0 20px;
+}
+
+.output-var {
+    margin: 2px 0;
+    color: var(--accent-color);
+}
+
+.placeholder-var {
+    opacity: 0.5;
+
+}
+
+#copy-btn {
+    margin-top: 5px;
+}
+
+// Modal
+#modal {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+    background-color: rgba(0,0,0,0.6);
+    opacity: 0;
+    transform: scale(0);
+    z-index: 100;
+
+    transition: all 200ms ease-in;
+
+    &.open {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .inside-modal {
+        background-color: var(--accent-color);
+        padding: 8px 24px;
+        border-radius: var(--border-radius);
+
+        .modal-text {
+            color: var(--black);
+            text-transform: uppercase;
+        }
+    }
+}
