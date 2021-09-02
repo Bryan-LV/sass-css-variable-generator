@@ -1,7 +1,6 @@
 import parseInputVariables from './parseInputVariables.js';
 import createGroupedVariablesObject from "./createGroupedVariablesObject.js";
 import copyToClipboard from './copyToClipboard.js';
-import prefixOption from './prefixOption.js';
 window.onload = function () {
     const textInput = document.querySelector('#input');
     const form = document.querySelector('#form');
@@ -14,10 +13,9 @@ window.onload = function () {
         const parseVariables = parseInputVariables(textInput.value.trim());
         // FIXME: trim last item off array as it's always an empty string
         parseVariables.pop();
-        const cleanVariables = cleanInputVariables(parseVariables);
-        let varsMap = prefix.value !== '' ? prefixOption(prefix.value, parseVariables) : parseVariables;
+        let isPrefixed = prefix.value !== '' ? prefix.value : '';
         // returns array of objects containing scss & css3 variables
-        const modData = createGroupedVariablesObject(varsMap);
+        const modData = createGroupedVariablesObject(parseVariables, isPrefixed);
         // Writing Action //
         // clear text before next write
         output.innerHTML = '';
